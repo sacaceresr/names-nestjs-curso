@@ -35,4 +35,18 @@ export class NamesService {
         }
         return false;
     }
+
+    deleteName(name: string){
+        const indexNameExists = this._names.findIndex((n) => n.toLocaleLowerCase().trim() === name.toLocaleLowerCase().trim());
+        if (indexNameExists != -1) {
+            this._names.splice(indexNameExists, 1);
+            return true;
+        }
+        return false;
+    }
+
+    clearNames(){
+        this._names = [];
+        return true;
+    }
 }
